@@ -6,7 +6,7 @@ package threadcoreknowledge.threadobjectclasscommonmethods;
  */
 public class WaitNotifyAll implements Runnable {
 
-    private final static Object object = new Object();
+    private static final  Object object = new Object();
 
     @Override
     public void run() {

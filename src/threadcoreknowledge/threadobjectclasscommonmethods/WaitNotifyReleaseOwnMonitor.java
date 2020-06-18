@@ -6,8 +6,8 @@ package threadcoreknowledge.threadobjectclasscommonmethods;
  */
 public class WaitNotifyReleaseOwnMonitor {
 
-    private final static Object resourceA = new Object();
-    private final static Object resourceB = new Object();
+    private static final Object resourceA = new Object();
+    private static final Object resourceB = new Object();
 
     public static void main(String[] args) throws InterruptedException {
         Thread threadA = new Thread(() -> {

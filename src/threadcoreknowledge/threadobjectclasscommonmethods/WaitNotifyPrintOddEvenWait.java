@@ -6,8 +6,17 @@ package threadcoreknowledge.threadobjectclasscommonmethods;
  */
 public class WaitNotifyPrintOddEvenWait {
 
-    private final static Object lock = new Object();
+    private static final Object lock = new Object();
     private static int count = 0;
+
+    public static void main(String[] args) throws InterruptedException {
+        Runnable runnable = new TurningRunner();
+        Thread threadA = new Thread(runnable, "偶数");
+        Thread threadB = new Thread(runnable, "奇数");
+        threadA.start();
+        Thread.sleep(10);
+        threadB.start();
+    }
 
     static class TurningRunner implements Runnable {
 
@@ -27,14 +36,5 @@ public class WaitNotifyPrintOddEvenWait {
                 }
             }
         }
-    }
-
-    public static void main(String[] args) throws InterruptedException {
-        Runnable runnable = new TurningRunner();
-        Thread threadA = new Thread(runnable, "偶数");
-        Thread threadB = new Thread(runnable, "奇数");
-        threadA.start();
-        Thread.sleep(10);
-        threadB.start();
     }
 }

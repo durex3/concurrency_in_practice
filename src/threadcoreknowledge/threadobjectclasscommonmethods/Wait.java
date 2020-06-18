@@ -6,7 +6,15 @@ package threadcoreknowledge.threadobjectclasscommonmethods;
  */
 public class Wait {
 
-    private final static Object object = new Object();
+    private static final Object object = new Object();
+
+    public static void main(String[] args) throws InterruptedException {
+        ThreadA threadA = new ThreadA();
+        threadA.start();
+        Thread.sleep(100);
+        ThreadB threadB = new ThreadB();
+        threadB.start();
+    }
 
     static class ThreadA extends Thread {
         @Override
@@ -33,13 +41,5 @@ public class Wait {
                 object.notify();
             }
         }
-    }
-
-    public static void main(String[] args) throws InterruptedException {
-        ThreadA threadA = new ThreadA();
-        threadA.start();
-        Thread.sleep(100);
-        ThreadB ThreadB = new ThreadB();
-        ThreadB.start();
     }
 }
