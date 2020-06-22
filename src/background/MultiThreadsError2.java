@@ -11,10 +11,6 @@ public class MultiThreadsError2 implements Runnable {
     private static final Object o1 = new Object();
     private static final Object o2 = new Object();
 
-    public void setFlag(int flag) {
-        this.flag = flag;
-    }
-
     @Override
     public void run() {
         System.out.println("flag = " + flag);
@@ -47,8 +43,8 @@ public class MultiThreadsError2 implements Runnable {
     public static void main(String[] args) {
         MultiThreadsError2 r1 = new MultiThreadsError2();
         MultiThreadsError2 r2 = new MultiThreadsError2();
-        r1.setFlag(0);
-        r2.setFlag(1);
+        r1.flag = 0;
+        r2.flag = 1;
         new Thread(r1).start();
         new Thread(r2).start();
     }
